@@ -7,6 +7,7 @@ gem 'rails', '4.1.5'
 gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'less-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -39,3 +40,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'slim'
 
+gem "twitter-bootstrap-rails"
+
+gem 'therubyracer'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
