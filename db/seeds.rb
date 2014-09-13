@@ -18,11 +18,11 @@ puts 'done!'
 puts 'Creating the ingredient table'
 CSV.foreach('db/rakuten_recipe/ingredients.csv') do |row|
   Ingredient.create(
-    name: row[0],
-    quantity: row[1],
-    recipe_id: row[2]
+    recipe_id: row[0],
+    name: row[1],
+    quantity: row[2]
   )
-  print "\rLine ##{$.}"
+  print "\rLine ##{$.} "
 end
 puts 'done!'
 
@@ -50,30 +50,30 @@ CSV.foreach('db/rakuten_recipe/recipes.csv') do |row|
     peoples: row[18],
     published_at: row[19]
   )
-  print "\rLine ##{$.}"
+  print "\rLine ##{$.} "
 end
 puts 'done!'
 
 puts 'Creating the step table'
 CSV.foreach('db/rakuten_recipe/steps.csv') do |row|
   Step.create(
-    position: row[0],
-    memo: row[1],
-    recipe_id: row[2]
+    recipe_id: row[0],
+    position: row[1],
+    memo: row[2]
   )
-  print "\rLine ##{$.}"
+  print "\rLine ##{$.} "
 end
 puts 'done!'
 
 puts 'Creating the tsukurepo table'
 CSV.foreach('db/rakuten_recipe/tsukurepos.csv') do |row|
   Report.create(
-    posted_at: row[0],
-    recipe_id: row[1],
+    recipe_id: row[0],
+    user_id: row[1],
     recommend: row[2],
     response: row[3],
-    user_id: row[4]
+    posted_at: row[4]
   )
-  print "\rLine ##{$.}"
+  print "\rLine ##{$.} "
 end
 puts 'done!'

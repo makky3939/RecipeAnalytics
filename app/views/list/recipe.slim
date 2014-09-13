@@ -1,4 +1,18 @@
-ul
-  - @recipe.each do |row|
-    li
-      = p row
+table.table
+  thead
+    tr
+      th title
+      th preface
+      th introduce
+      th name
+      th one_point
+      th peoples
+  tbody
+    - @recipe.each do |row|
+      tr
+        td = row.title
+        td = row.preface
+        td = row.introduce
+        td = row.name
+        td = row.one_point
+        td = row.peoples
