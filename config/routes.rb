@@ -54,4 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   get 'search/status' => 'search#status'
+  get 'list/recipe' => 'list#recipe'
+  get 'list/step' => 'list#step' 
+  get 'list/report' => 'list#report' 
+  get 'list/ingredient' => 'list#ingredient' 
 end
