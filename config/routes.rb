@@ -53,8 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get 'search/status' => 'search#status'
+
+  get 'settings' => 'setting#status'
+
   get 'list/recipe' => 'list#recipe'
+  get 'list/recipe/:id' => 'list#recipe_detail'
   get 'list/step' => 'list#step' 
   get 'list/report' => 'list#report' 
   get 'list/ingredient' => 'list#ingredient' 

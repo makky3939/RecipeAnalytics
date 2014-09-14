@@ -1,18 +1,15 @@
 table.table
   thead
     tr
-      th title
-      th preface
-      th introduce
-      th name
-      th one_point
-      th peoples
+      th.col-sm-3 Name
+      th.col-sm-4 Preface
+      th.col-sm-4 Introduce
+      th.col-sm-1 Peoples
   tbody
     - @recipe.each do |row|
       tr
-        td = row.title
+        td
+          = link_to row.name, "recipe/#{row.id}"
         td = row.preface
         td = row.introduce
-        td = row.name
-        td = row.one_point
         td = row.peoples
