@@ -1,0 +1,28 @@
+= link_to "List/Stepに戻る", "/list/step"
+table.table
+  tbody
+    tr
+      th
+        p recipe_id
+      td
+        = @step.recipe_id
+    tr
+      th
+        p position
+      td
+        = @step.position
+    tr
+      th
+        p memo
+      td
+        = @step.memo
+    tr
+      th
+        p created_at
+      td
+        = @step.created_at
+    tr
+      th
+        p updated_at
+      td
+        = @step.updated_at

@@ -1,0 +1,14 @@
+table.table
+  thead
+    tr
+      th.col-sm-3 Recipe id
+      th.col-sm-3 Position
+      th.col-sm-6 Memo
+
+  tbody
+    - @step.each do |row|
+      tr
+        td = row.recipe_id
+        td = row.position
+        td
+          = link_to row.memo, "step/#{row.id}"

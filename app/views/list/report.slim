@@ -1,0 +1,16 @@
+table.table
+  thead
+    tr
+      th.col-sm-2 Recipe id
+      th.col-sm-2 User id
+      th.col-sm-4 Recommend
+      th.col-sm-4 Response
+
+  tbody
+    - @report.each do |row|
+      tr
+        td = row.recipe_id
+        td = row.user_id
+        td
+          = link_to row.recommend, "report/#{row.id}"
+        td = row.response

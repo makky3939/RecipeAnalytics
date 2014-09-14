@@ -1,0 +1,28 @@
+= link_to "List/Ingredientに戻る", "/list/ingredient"
+table.table
+  tbody
+    tr
+      th
+        p recipe_id
+      td
+        = @ingredient.recipe_id
+    tr
+      th
+        p name
+      td
+        = @ingredient.name
+    tr
+      th
+        p quantity
+      td
+        = @ingredient.quantity
+    tr
+      th
+        p created_at
+      td
+        = @ingredient.created_at
+    tr
+      th
+        p updated_at
+      td
+        = @ingredient.updated_at

@@ -1,0 +1,13 @@
+table.table
+  thead
+    tr
+      th.col-sm-4 Name
+      th.col-sm-4 Quantity
+      th.col-sm-4 Recipe id
+  tbody
+    - @ingredient.each do |row|
+      tr
+        td
+          = link_to row.name, "ingredient/#{row.id}"
+        td = row.quantity
+        td = row.recipe_id

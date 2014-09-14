@@ -1,0 +1,38 @@
+= link_to "List/Reportに戻る", "/list/report"
+table.table
+  tbody
+    tr
+      th
+        p recipe_id
+      td
+        = @report.recipe_id
+    tr
+      th
+        p user_id
+      td
+        = @report.user_id
+    tr
+      th
+        p recommend
+      td
+        = @report.recommend
+    tr
+      th
+        p response
+      td
+        = @report.response
+    tr
+      th
+        p posted_at
+      td
+        = @report.posted_at
+    tr
+      th
+        p created_at
+      td
+        = @report.created_at
+    tr
+      th
+        p updated_at
+      td
+        = @report.updated_at

@@ -59,6 +59,9 @@ Rails.application.routes.draw do
   get 'list/recipe' => 'list#recipe'
   get 'list/recipe/:id' => 'list#recipe_detail'
   get 'list/step' => 'list#step' 
-  get 'list/report' => 'list#report' 
-  get 'list/ingredient' => 'list#ingredient' 
+  get 'list/step/:id' => 'list#step_detail'
+  get 'list/report' => 'list#report'
+  get 'list/report/:id' => 'list#report_detail'
+  get 'list/ingredient' => 'list#ingredient'
+  get 'list/ingredient/:id' => 'list#ingredient_detail'
 end
