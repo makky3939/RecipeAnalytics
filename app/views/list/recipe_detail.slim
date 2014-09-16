@@ -1,4 +1,6 @@
 = link_to "List/Recipeに戻る", "/list/recipe"
+
+h2 詳細情報
 table.table
   tbody
     tr
@@ -111,3 +113,35 @@ table.table
         p updated_at
       td
         = @recipe.updated_at
+
+h2 材料
+table.table
+  tbody
+    - @ingredients.each do |item|
+      tr
+        td
+          = item.name
+        td
+          = item.quantity
+
+h2 手順
+table.table
+  tbody
+    - @steps.each do |item|
+      tr
+        td
+          = item.position
+        td
+          = item.memo
+
+h2 レポート
+table.table
+  tbody
+    - @reports.each do |item|
+      tr
+        td
+          = item.user_id
+        td
+          = item.recommend
+        td
+          = item.response

@@ -5,6 +5,7 @@ class ListController < ApplicationController
 
   def ingredient_detail
     @ingredient = Ingredient.where(id: params[:id]).first
+    @recipe = @ingredient.recipe
   end
 
   def recipe
@@ -13,6 +14,9 @@ class ListController < ApplicationController
 
   def recipe_detail
     @recipe = Recipe.where(id: params[:id]).first
+    @ingredients = @recipe.ingredients
+    @steps = @recipe.steps
+    @reports = @recipe.reports
   end
 
   def step
@@ -21,6 +25,7 @@ class ListController < ApplicationController
 
   def step_detail
     @step = Step.where(id: params[:id]).first
+    @recipe = @step.recipe
   end
 
   def report
@@ -29,5 +34,6 @@ class ListController < ApplicationController
 
   def report_detail
     @report = Report.where(id: params[:id]).first
+    @recipe = @report.recipe
   end
 end
