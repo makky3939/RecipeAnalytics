@@ -20,6 +20,15 @@ html
           ul.nav.navbar-nav.navbar-right
             li
               a(href="/settings") Status
+
+            li.dropdown
+              a.dropdown-toggle(href="#" data-toggle="dropdown")
+                |Graph
+                span.caret
+              ul.dropdown-menu(role="menu")
+                li
+                  a(href="/graph/ingredients/par_count") Ingredients/par_count
+
             li.dropdown
               a.dropdown-toggle(href="#" data-toggle="dropdown")
                 |List
