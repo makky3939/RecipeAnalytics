@@ -57,7 +57,7 @@
 
   bar.append 'text'
     .attr 'dy', '.75em'
-    .attr 'y', 6
+    .attr 'y', -10
     .attr 'x', x(data[0].dx) / 2
     .attr 'text-anchor', 'middle'
     .text (d) -> formatCount(d.y)
