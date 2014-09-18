@@ -54,7 +54,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root 'setting#status'
+
   get 'settings' => 'setting#status'
+
+  get 'graph/ingredients/par_count' => 'ingredients#par_count'
 
   get 'list/recipe' => 'list#recipe'
   get 'list/recipe/:id' => 'list#recipe_detail'
