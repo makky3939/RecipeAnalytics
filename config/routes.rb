@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   get 'settings' => 'setting#status'
 
   get 'graph/ingredients/par_count' => 'ingredients#par_count'
+  get 'graph/ingredients/par_count_json' => 'ingredients#par_count_json'
 
   get 'list/recipe' => 'list#recipe'
   get 'list/recipe/:id' => 'list#recipe_detail'

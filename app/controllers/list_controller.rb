@@ -17,6 +17,8 @@ class ListController < ApplicationController
     @ingredients = @recipe.ingredients
     @steps = @recipe.steps
     @reports = @recipe.reports
+    natto = Natto::MeCab.new
+    @parsed_recipe_name = natto.parse @recipe.name
   end
 
   def step
