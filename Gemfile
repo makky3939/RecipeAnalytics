@@ -40,6 +40,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'slim'
 
+gem 'natto'
+
 gem "twitter-bootstrap-rails"
 
 gem 'therubyracer'
