@@ -1,8 +1,8 @@
 class IngredientsController < ApplicationController
-  def par_count
+  def with_frequency
   end
 
-  def par_count_json
+  def with_frequency_json
     ingredients = Ingredient.withFrequency
     data = {
       fields: ['item', 'size'],
@@ -10,7 +10,7 @@ class IngredientsController < ApplicationController
     }
 
     ingredients.each do |key, val|
-      data[:values].push [key, val * 10] unless val == 1
+      data[:values].push [key, val * 10] unless val < 1
     end
 
     render :json => data

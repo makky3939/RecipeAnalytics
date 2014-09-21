@@ -1,12 +1,12 @@
-@par_count = ->
-  format = d3.time.format "%Y-%m-%d"
+@with_frequency = ->
   margin =
-    top: 20
-    right: 20
-    bottom: 30
-    left: 40
-  width = 1920 - margin.left - margin.right
-  height = 1920 - margin.top - margin.bottom
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+  width = $('h2').width() - margin.left - margin.right
+  height = $('h2').width() - margin.top - margin.bottom
  
   force =
     d3.layout.force()
@@ -16,15 +16,15 @@
  
   color = d3.scale.category10()
   
-  svg = d3.select("body")
+  svg = d3.select("#with_frequency")
     .append "svg"
     .attr "width", width + margin.left + margin.right
     .attr "height", height + margin.top + margin.bottom
     .append "g"
       .attr "transform", "translate(" + margin.left + "," + margin.top + ")"
   
-  d3.json 'par_count_json', (error, data) ->
-    console.log data
+  d3.json 'with_frequency_json', (error, data) ->
+    console.table data.values
     data.values.forEach (d) ->
       d.name = d[0]
       d.size = d[1]
@@ -58,16 +58,14 @@
         else
           return "#c0392b"
 
-
     node.append("text")
       .text((d) -> return d.name)
         .attr('fill', '#acacac')
-        .attr('font-size', 2)
+        .attr('font-size', 3)
         .attr('dx', -5)
         .attr('dy', -5)
         .attr('class', 'item-name')
 
-              
     node.append("text")
       .text((d) -> return d.size / 10 )
       .attr('fill', '#fff')
