@@ -61,6 +61,9 @@ Rails.application.routes.draw do
   get 'ingredients/with_frequency' => 'ingredients#with_frequency'
   get 'ingredients/with_frequency_json' => 'ingredients#with_frequency_json'
 
+  get 'reports/users_relation' => 'reports#users_relation'
+  get 'reports/users_relation_json' => 'reports#users_relation_json'
+
   get 'list/recipe' => 'list#recipe'
   get 'list/recipe/:id' => 'list#recipe_detail'
   get 'list/step' => 'list#step' 

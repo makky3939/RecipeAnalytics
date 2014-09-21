@@ -31,7 +31,7 @@ class ListController < ApplicationController
   end
 
   def report
-    @report = Report.first(50)
+    @report = Report.all
   end
 
   def report_detail
