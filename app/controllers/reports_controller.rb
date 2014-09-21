@@ -4,7 +4,12 @@ class ReportsController < ApplicationController
 
   def users_relation_json
     reports = Report.usersRelation
-    data = reports
+    data = []
+    reports.each do |source, targets|
+      targets.each do |target, type|
+        data.push(source: source, target: target, type: type)
+      end
+    end
     render :json => data
   end
 end

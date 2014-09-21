@@ -16,7 +16,7 @@
       .links(data)
       .size([width, height])
       .linkDistance(60)
-      .charge(-300)
+      .charge(-200)
       .start()
 
     svg = d3.select("#users_relation").append("svg")
@@ -36,23 +36,40 @@
         .attr("class", "node")
         .on("mouseover", ->
           d3.select(this).select("circle").transition()
-            .duration(750)
-            .attr("r", 16)
+            .duration(250)
+            .attr("r", 24)
         )
         .on("mouseout", ->
           d3.select(this).select("circle").transition()
-            .duration(750)
-            .attr("r", 8)
+            .duration(250)
+            .attr("r", 16)
         )
         .call(force.drag)
 
     node.append("circle")
-      .attr("r", 8)
+      .attr("r", 16)
+      .attr "fill", (d) ->
+        if d.weight <= 1
+          return "#27ae60"
+        else if d.weight > 2 && d.weight <= 4
+          return "#f1c40f"
+        else if d.weight > 4 && d.weight <= 10
+          return "#e67e22"
+        else
+          return "#c0392b"
 
     node.append("text")
       .attr("x", 12)
       .attr("dy", ".35em")
-      .text (d) -> return d.name
+      .text (d) ->
+        console.log d
+        return d.name
+
+    node.append("text")
+      .attr('fill', '#ffffff')
+      .attr("x", -2)
+      .attr("dy", -1)
+      .text (d) -> return d.weight
 
     force.on "tick", ->
       link
