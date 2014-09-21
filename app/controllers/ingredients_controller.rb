@@ -16,13 +16,12 @@ class IngredientsController < ApplicationController
     end
     data =
       {
-        "fields"=>["item","size"],
-        "values"=>[]
+        "fields" => ["item","size"],
+        "values" => []
       }
-      items.each do |key, val|
-        data["values"].push [key, val*10] unless val == 1
-      end
-      data["values"].shuffle!
+    items.each do |key, val|
+      data["values"].push [key, val*10] unless val == 1
+    end
     render :json => data
   end
 end
