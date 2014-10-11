@@ -7,15 +7,17 @@ class Recipe < ActiveRecord::Base
     natto = Natto::MeCab.new
     recipes = {}
 
-    Recipe.all.each do |item|
-      parsed_item_names = natto.parse item.name
-      parsed_item_names = parsed_item_names.split("\n")
-      parsed_item_names.each do |name|
-        name = name.split "\t"
-        if recipes[name[0]]
-          recipes[name[0]] += 1
-        else
-          recipes[name[0]] = 0
+    Recipe.first(10000).each do |item|
+      unless item.name.nil?
+        parsed_item_names = natto.parse item.name
+        parsed_item_names = parsed_item_names.split("\n")
+        parsed_item_names.each do |name|
+          name = name.split "\t"
+          if recipes[name[0]]
+            recipes[name[0]] += 1
+          else
+            recipes[name[0]] = 0
+          end
         end
       end
     end
