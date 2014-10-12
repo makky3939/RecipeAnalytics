@@ -63,6 +63,8 @@ Rails.application.routes.draw do
 
   get 'recipes/with_frequency' => 'recipes#with_frequency'
   get 'recipes/with_frequency_json' => 'recipes#with_frequency_json'
+  get 'recipes/post_calender' => 'recipes#post_calender'
+  get 'recipes/post_calender_json' => 'recipes#post_calender_json'
 
   get 'reports/users_relation' => 'reports#users_relation'
   get 'reports/users_relation_json' => 'reports#users_relation_json'

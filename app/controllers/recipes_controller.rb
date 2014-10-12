@@ -15,4 +15,12 @@ class RecipesController < ApplicationController
 
     render :json => data
   end
+
+  def post_calendar
+  end
+
+  def post_calendar_json
+    data = {}
+    render :json => data
+  end
 end
