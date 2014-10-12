@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012011437) do
+ActiveRecord::Schema.define(version: 20141012030456) do
 
   create_table "ingredients", force: true do |t|
     t.integer  "recipe_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141012011437) do
   end
 
   add_index "ingredients", ["id"], name: "index_ingredients_on_id", using: :btree
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.integer  "recipe_id"
@@ -49,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141012011437) do
   end
 
   add_index "recipes", ["id"], name: "index_recipes_on_id", using: :btree
+  add_index "recipes", ["recipe_id"], name: "index_recipes_on_recipe_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "reports", force: true do |t|
     t.integer  "recipe_id"
@@ -61,6 +64,8 @@ ActiveRecord::Schema.define(version: 20141012011437) do
   end
 
   add_index "reports", ["id"], name: "index_reports_on_id", using: :btree
+  add_index "reports", ["recipe_id"], name: "index_reports_on_recipe_id", using: :btree
+  add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
 
   create_table "steps", force: true do |t|
     t.integer  "recipe_id"
@@ -71,5 +76,6 @@ ActiveRecord::Schema.define(version: 20141012011437) do
   end
 
   add_index "steps", ["id"], name: "index_steps_on_id", using: :btree
+  add_index "steps", ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
 
 end
