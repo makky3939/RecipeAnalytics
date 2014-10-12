@@ -1,8 +1,8 @@
 class SettingController < ApplicationController
   def status
-    @ingredient_size = Ingredient.all.size
-    @recipe_size = Recipe.all.size
-    @step_size = Step.all.size
-    @report_size = Report.all.size
+    @ingredient_size = Ingredient.select(:id).count
+    @recipe_size = Recipe.select(:id).count
+    @step_size = Step.select(:id).count
+    @report_size = Report.select(:id).count
   end
 end
