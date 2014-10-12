@@ -11,3 +11,7 @@ table.table
           = link_to row.name, "ingredient/#{row.id}"
         td = row.quantity
         td = row.recipe_id
+
+.row
+  .text-center
+    = paginate @ingredient

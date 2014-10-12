@@ -14,3 +14,7 @@ table.table
         td
           = link_to row.recommend, "report/#{row.id}"
         td = row.response
+
+.row
+  .text-center
+    = paginate @report

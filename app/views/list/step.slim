@@ -12,3 +12,7 @@ table.table
         td = row.position
         td
           = link_to row.memo, "step/#{row.id}"
+
+.row
+  .text-center
+    = paginate @step

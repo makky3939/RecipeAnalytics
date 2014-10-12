@@ -1,6 +1,6 @@
 class ListController < ApplicationController
   def ingredient
-    @ingredient = Ingredient.first(50)
+    @ingredient = Ingredient.page(params[:page]).per(20).order :id
   end
 
   def ingredient_detail
@@ -9,7 +9,7 @@ class ListController < ApplicationController
   end
 
   def recipe
-    @recipe = Recipe.first(50)
+    @recipe = Recipe.page(params[:page]).per(20).order :id
   end
 
   def recipe_detail
@@ -22,7 +22,7 @@ class ListController < ApplicationController
   end
 
   def step
-    @step = Step.first(50)
+    @step = Step.page(params[:page]).per(20).order :id
   end
 
   def step_detail
@@ -31,7 +31,7 @@ class ListController < ApplicationController
   end
 
   def report
-    @report = Report.all
+    @report = Report.page(params[:page]).per(20).order :id
   end
 
   def report_detail
