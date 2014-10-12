@@ -20,7 +20,15 @@ class RecipesController < ApplicationController
   end
 
   def post_calendar_json
-    data = {}
+    recipes = Recipe.first(10)
+    data = {
+      recipes: []
+    }
+
+    recipes.each do |recipe|
+      data[:recipes].push({:name => recipe.name, :date => recipe.published_at.strftime("%Y-%m-%d")})
+    end
+
     render :json => data
   end
 end
