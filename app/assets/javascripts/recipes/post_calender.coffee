@@ -14,7 +14,7 @@
       bottom: 0
       left: 0
 
-    color = d3.scale.linear().domain([1, 100]).range(["#aae272", "#2b470e"])
+    color = d3.scale.linear().domain([1, 300]).range(["#aae272", "#2b470e"])
     cellSize = 17
     # width = $('h2').width() - margin.left - margin.right
     # height = $('h2').width() - margin.top - margin.bottom
@@ -27,7 +27,7 @@
     format = d3.time.format '%Y-%m-%d'
 
     svg = d3.select("body").selectAll "svg"
-      .data d3.range('2012', '2015')
+      .data d3.range('2010', '2015')
       .enter().append "svg"
       .attr "width", width
       .attr "height", height
@@ -58,10 +58,11 @@
       .text (d) ->
         d
 
-    rect.filter((d) -> d in data)
-      .attr "fill", (d) ->
-        "#35d6c9"
-        console.log d
+    rect.attr "fill", (d) ->
+      if data[d] != undefined
+        return color(data[d].length)
+      else
+        return '#fff'
 
     monthPath = (t0) ->
       t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0)

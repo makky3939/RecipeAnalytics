@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def post_calendar_json
-    recipes = Recipe.first(10)
+    recipes = Recipe.select(:name, :published_at).first(100000)
     data = {
       recipes: []
     }
