@@ -8,12 +8,12 @@
 
 require 'csv'
 
-puts 'Tables drop'
+# puts 'Tables drop'
 # Ingredient.delete_all
 # Recipe.delete_all
 # Step.delete_all
-Report.delete_all
-puts 'done!'
+# Report.delete_all
+# puts 'done!'
 
 
 # puts 'Creating the ingredient table'
@@ -50,7 +50,7 @@ puts 'done!'
 #     anytime_id: row[16],
 #     money_id: row[17],
 #     peoples: row[18],
-#     published_at: row[19]
+#     published_at: row.last
 #   )
 #   print "\rLine ##{$.} "
 # end
@@ -69,15 +69,15 @@ puts 'done!'
 # puts 'done!'
 
 
-puts 'Creating the reports table'
-CSV.foreach('db/rakuten_recipe/reports.csv') do |row|
-  Report.create(
-    recipe_id: row[0],
-    user_id: row[1],
-    recommend: row[2],
-    response: row[3],
-    posted_at: row[4]
-  )
-  print "\rLine ##{$.} "
-end
-puts 'done!'
+# puts 'Creating the reports table'
+# CSV.foreach('db/rakuten_recipe/reports.csv') do |row|
+#   Report.create(
+#     recipe_id: row[0],
+#     user_id: row[1],
+#     recommend: row[2],
+#     response: row[3],
+#     posted_at: row[4]
+#   )
+#   print "\rLine ##{$.} "
+# end
+# puts 'done!'
