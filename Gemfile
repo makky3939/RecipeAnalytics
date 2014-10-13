@@ -50,6 +50,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'therubyracer'
 
+gem 'yajl-ruby'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
