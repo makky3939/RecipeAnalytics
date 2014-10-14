@@ -55,6 +55,14 @@
           'stroke-width': '1px'
         }
         .datum format
+        # .on "mouseover", ->
+        #   d3.select(this).attr {
+        #     'fill': '#35d6c9'
+        #   }
+        # .on "mouseout", ->
+        #   console.log this
+        .on "click", ->
+          alert d3.select(this).select("name")[0][0].innerHTML
 
     rect.append 'name'
       .text (d) ->
