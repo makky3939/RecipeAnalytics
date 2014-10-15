@@ -1,6 +1,6 @@
 @with_frequency = ->
-  width = $('h2').width()*2
-  height = $('h2').width()*2
+  width = $('h2').width()
+  height = $('h2').width()
  
   force =
     d3.layout.force()
