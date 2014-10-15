@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
     }
 
     recipes.each do |key, val|
-      data[:values].push [key, val] unless val < 50 || key == 'EOS' || key.size < 2
+      data[:values].push [key, val*2] unless val < 35 || key == 'EOS' || key.size < 2
     end
 
     render :json => data

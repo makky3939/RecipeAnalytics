@@ -3,7 +3,7 @@ class Report < ActiveRecord::Base
 
   def self.usersRelation
     data = {}
-    Report.includes(:recipe).first(1000).each do |report|
+    Report.includes(:recipe).first(10000).each do |report|
       unless report.recipe.nil?
         source_uid = report.recipe.user_id
         target_uid = report.user_id

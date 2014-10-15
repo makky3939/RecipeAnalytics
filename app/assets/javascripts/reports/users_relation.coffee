@@ -46,13 +46,13 @@
         #     .duration(250)
         #     .attr("r", 16)
         # )
-        # .call(force.drag)
+        .call(force.drag)
 
     node.append("circle")
       .attr "r", (d) ->
         switch d.weight
           when 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-            return 0
+            return 2
           else
             return 16
 

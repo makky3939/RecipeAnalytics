@@ -45,11 +45,11 @@
       .attr("opacity", 1)
       .attr('class', 'item')
       .attr "fill", (d) ->
-        if d.size <= 80
+        if d.size <= 100
           return "#27ae60"
-        else if d.size > 80 && d.size <= 90
+        else if d.size > 100 && d.size <= 200
           return "#f1c40f"
-        else if d.size > 90 && d.size <= 100
+        else if d.size > 200 && d.size <= 300
           return "#e67e22"
         else
           return "#c0392b"
