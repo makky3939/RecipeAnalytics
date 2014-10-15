@@ -8,7 +8,9 @@
       link.target = nodes[link.target] || (nodes[link.target] = {name: link.target})
       0
 
-    width = $('h2').width()
+    # console.log data
+    # console.log nodes
+    width = $('h2').width()*1.6
     height = $('h2').width()
 
     force = d3.layout.force()
@@ -50,7 +52,7 @@
       .attr "r", (d) ->
         switch d.weight
           when 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-            return 2
+            return 0
           else
             return 16
 
@@ -72,17 +74,21 @@
 
     node.append("text")
       .attr('fill', '#ffffff')
-      .attr("x", -2)
-      .attr("dy", -1)
+      .attr("x", 0)
+      .attr("dy", 0)
       .text (d) ->
         return d.weight
 
     force.on "tick", ->
       link
-        .attr("x1", (d) -> return d.source.x )
-        .attr("y1", (d) -> return d.source.y )
-        .attr("x2", (d) -> return d.target.x )
-        .attr("y2", (d) -> return d.target.y )
+        .attr "x1", (d) ->
+          return d.source.x
+        .attr "y1", (d) ->
+          return d.source.y
+        .attr "x2", (d) ->
+          return d.target.x
+        .attr "y2", (d) ->
+          return d.target.y
       node
         .attr("transform", (d) -> return "translate(" + d.x + "," + d.y + ")" )
       0

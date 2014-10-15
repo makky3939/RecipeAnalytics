@@ -4,7 +4,7 @@
   percent = d3.format '.1%'
   format = d3.time.format '%Y-%m-%d'
 
-  color = d3.scale.linear().domain([1, 2000]).range(['#acacac', '#343434'])
+  color = d3.scale.linear().domain([1, 1500]).range(['#acacac', '#343434'])
   cellSize = 17
 
   width = $('h2').width()

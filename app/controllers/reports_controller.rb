@@ -6,8 +6,10 @@ class ReportsController < ApplicationController
     reports = Report.usersRelation
     data = []
     reports.each do |source, targets|
-      targets.each do |target, type|
-        data.push(source: source, target: target, type: type)
+      if targets.keys.length > 50
+        targets.each do |target, type|
+          data.push(source: source, target: target, type: type)
+        end
       end
     end
     render :json => data

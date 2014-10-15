@@ -3,11 +3,11 @@ class Ingredient < ActiveRecord::Base
 
   def self.withFrequency
     ingredients = {}
-    Ingredient.first(10000).each do |item|
+    Ingredient.select(:name).all.each do |item|
       if ingredients[item.name]
-        ingredients[item.name] += 1
+        ingredients[item.name] += 0.01
       else
-        ingredients[item.name] = 0
+        ingredients[item.name] = 0.00
       end
     end
     ingredients

@@ -10,7 +10,7 @@ class IngredientsController < ApplicationController
     }
 
     ingredients.each do |key, val|
-      data[:values].push [key, val * 10] unless val < 1
+      data[:values].push [key, val] unless val < 100
     end
 
     render :json => data

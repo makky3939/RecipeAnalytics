@@ -1,12 +1,6 @@
 @recipe_with_frequency = ->
-  margin =
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-
-  width = $('h2').width() - margin.left - margin.right
-  height = $('h2').width() - margin.top - margin.bottom
+  width = $('h2').width()
+  height = $('h2').width()
  
   force =
     d3.layout.force()
@@ -18,18 +12,18 @@
   
   svg = d3.select("#with_frequency")
     .append "svg"
-    .attr "width", width + margin.left + margin.right
-    .attr "height", height + margin.top + margin.bottom
+    .attr "width", width
+    .attr "height", height
     .append "g"
-      .attr "transform", "translate(" + margin.left + "," + margin.top + ")"
+      .attr "transform", "translate(" + 0 + "," + 0 + ")"
   
   d3.json 'with_frequency_json', (error, data) ->
-    console.table data.values
     data.values.forEach (d) ->
       d.name = d[0]
       d.size = d[1]
       false
     false
+    console.log data
 
     force
       .nodes(data.values)
@@ -46,9 +40,7 @@
 
     node.append("circle")
       .attr("r", (d) ->
-        size = d.size * .1
-        size = 60 if size > 60
-        size
+        d.size * .1
       )
       .attr("opacity", 1)
       .attr('class', 'item')
@@ -64,18 +56,20 @@
 
     node.append("text")
       .text((d) -> return d.name)
-        .attr('fill', '#acacac')
-        .attr('font-size', 3)
-        .attr('dx', -5)
+        .attr('fill', '#efefef')
+        .attr('font-size', 6)
+        .attr('dx', 0)
         .attr('dy', -5)
+        .attr('text-anchor', 'middle')
         .attr('class', 'item-name')
 
     node.append("text")
-      .text((d) -> return d.size / 10 )
-      .attr('fill', '#fff')
-      .attr('font-size', 4)
-      .attr('dx', -2)
-      .attr('dy', 1)
+      .text((d) -> return d.size)
+      .attr('fill', '#bcbcbc')
+      .attr('font-size', 3)
+      .attr('dx', 0)
+      .attr('text-anchor', 'middle')
+      .attr('dy', 5)
 
     force.on "tick", ->
       node
