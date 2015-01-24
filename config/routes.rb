@@ -56,6 +56,17 @@ Rails.application.routes.draw do
 
   root 'setting#status'
 
+  resources :analyse, :only => [:index]
+
+  namespace :analyse do
+    get 'method/of_ingredients' => 'method#of_ingredients'
+    get 'method/of_ingredients_json' => 'method#of_ingredients_json'
+
+    get 'report/user_relation' => 'report#user_relation'
+    get 'report/user_relation_create' => 'report#user_relation_create'
+    get 'report/user_relation_json' => 'report#user_relation_json'
+  end
+
   get 'settings' => 'setting#status'
 
   get 'ingredients/with_frequency' => 'ingredients#with_frequency'
@@ -65,9 +76,6 @@ Rails.application.routes.draw do
   get 'recipes/with_frequency_json' => 'recipes#with_frequency_json'
   get 'recipes/post_calendar' => 'recipes#post_calendar'
   get 'recipes/post_calendar_json' => 'recipes#post_calendar_json'
-
-  get 'reports/users_relation' => 'reports#users_relation'
-  get 'reports/users_relation_json' => 'reports#users_relation_json'
 
   get 'list/recipe' => 'list#recipe'
   get 'list/recipe/:id' => 'list#recipe_detail'
