@@ -1,0 +1,2 @@
+module Analyse::MethodHelper
+end
