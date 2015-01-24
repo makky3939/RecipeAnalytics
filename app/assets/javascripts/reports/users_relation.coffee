@@ -1,5 +1,5 @@
 @users_relation = ->
-  d3.json 'users_relation_json', (error, data) ->
+  d3.json '/analyse/report/user_relation_json', (error, data) ->
     console.log data
     nodes = {}
 
