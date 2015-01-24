@@ -19,9 +19,12 @@ h1 Analyse
       .panel-body
         = REDIS.get('report_user_relation')[0..480]
       .panel-footer
-        a.btn.btn-success(href="/analyse/report/user_relation")
-          i.fa.fa-plus.fa-fw
-          |Graph
-        a.btn.btn-success(href="/analyse/report/user_relation_create")
-          i.fa.fa-plus.fa-fw
-          |Create
+        .row
+          .col-xs-6
+            a.btn.btn-success(href="/analyse/report/user_relation")
+              i.fa.fa-play.fa-fw
+              |Graph
+          .col-xs-6.text-right
+            a.btn.btn-danger(href="/analyse/report/user_relation_create")
+              i.fa.fa-refresh.fa-fw
+              |Create
