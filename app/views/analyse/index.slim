@@ -1,0 +1,27 @@
+h1 Analyse
+
+.row
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        h4 Method of ingredients
+      .panel-body
+        = REDIS.get('method_of_ingredients')[0..480]
+      .panel-footer
+        a.btn.btn-success(href="/analyse/method/of_ingredients_create")
+          i.fa.fa-plus.fa-fw
+          |Create
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        h4 Report user relation
+      .panel-body
+        = REDIS.get('report_user_relation')[0..480]
+      .panel-footer
+        a.btn.btn-success(href="/analyse/report/user_relation")
+          i.fa.fa-plus.fa-fw
+          |Graph
+        a.btn.btn-success(href="/analyse/report/user_relation_create")
+          i.fa.fa-plus.fa-fw
+          |Create
