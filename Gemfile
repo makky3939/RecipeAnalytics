@@ -58,3 +58,5 @@ group :development do
 end
 
 gem 'redis'
+
+gem 'quiet_assets', group: :development
