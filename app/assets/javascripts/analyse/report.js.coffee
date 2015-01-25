@@ -8,19 +8,17 @@
       link.target = nodes[link.target] || (nodes[link.target] = {name: link.target})
       0
 
-    # console.log data
-    # console.log nodes
-    width = $('h2').width()*1.6
+    width = $('h2').width()
     height = $('h2').width()
 
     force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(data)
       .size([width, height])
-      .linkDistance(60)
-      .charge(-200)
+      .linkDistance(512)
+      .charge(-100)
+      .friction(0)
       .start()
-
     svg = d3.select("#users_relation").append("svg")
       .attr("width", width)
       .attr("height", height)
@@ -36,46 +34,36 @@
         .data(force.nodes())
       .enter().append("g")
         .attr("class", "node")
-        # .on("mouseover", ->
-        #   d3.select(this).select("circle").transition()
-        #     .duration(250)
-        #     .attr("r", 24)
-        # )
-        # .on("mouseout", ->
-        #   d3.select(this).select("circle").transition()
-        #     .duration(250)
-        #     .attr("r", 16)
-        # )
         .call(force.drag)
 
     node.append("circle")
       .attr "r", (d) ->
-        switch d.weight
-          when 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-            return 2
-          else
-            return 16
+        if d.weight < 9
+          return 8
+        else
+          return d.weight * 0.8
 
       .attr "fill", (d) ->
         if d.weight < 9
-          return "#03C9A9"
+          return "#5c5757"
         else if d.weight > 9 && d.weight <= 100
-          return "#4183D7"
+          return "#53a1b8"
         else if d.weight > 100 && d.weight <= 200
-          return "#F89406"
+          return "#237dac"
         else
-          return "#F64747"
+          return "#4f5f6f"
 
-    # node.append("text")
-    #   .attr("x", 12)
-    #   .attr("dy", ".35em")
-    #   .text (d) ->
-    #     return d.name
+    node.append("text")
+      .attr('fill', '#565656')
+      .style("text-anchor", "middle")
+      .attr("dy", "1.6em")
+      .text (d) ->
+        return d.name if d.weight > 10
 
     node.append("text")
       .attr('fill', '#ffffff')
-      .attr("x", 0)
-      .attr("dy", 0)
+      .style("text-anchor", "middle")
+      .attr("dy", '.3em')
       .text (d) ->
         return d.weight
 

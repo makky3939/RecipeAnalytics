@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   namespace :analyse do
     get 'method/of_ingredients' => 'method#of_ingredients'
+    get 'method/of_ingredients_create' => 'method#of_ingredients_create'
     get 'method/of_ingredients_json' => 'method#of_ingredients_json'
 
     get 'report/user_relation' => 'report#user_relation'

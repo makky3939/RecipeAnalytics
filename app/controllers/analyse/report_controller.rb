@@ -8,7 +8,12 @@ class Analyse::ReportController < ApplicationController
     reports.each do |source, targets|
       if targets.keys.length > 50
         targets.each do |target, type|
-          result.push(source: source, target: target, type: type)
+          # p source
+          # p target
+          # p type
+          if type > 12
+            result.push(source: source, target: target, type: type)
+          end
         end
       end
     end
