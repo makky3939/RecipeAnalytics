@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     get 'method/of_ingredients' => 'method#of_ingredients'
     get 'method/of_ingredients_create' => 'method#of_ingredients_create'
     get 'method/of_ingredients_json' => 'method#of_ingredients_json'
+    get 'method/of_ingredients_csv' => 'method#of_ingredients_csv'
 
     get 'report/user_relation' => 'report#user_relation'
     get 'report/user_relation_create' => 'report#user_relation_create'

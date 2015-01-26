@@ -16,9 +16,10 @@
       .nodes(d3.values(nodes))
       .links(data)
       .size([width, height])
-      .linkDistance(100)
+      .linkDistance (d) ->
+        return 90
       .friction(0)
-      .gravity(-0.01)
+      .gravity(0)
       .start()
     svg = d3.select("#method_of_ingredients").append("svg")
       .attr("width", width)
@@ -39,7 +40,7 @@
     node.append("circle")
       .attr "r", (d) ->
         if d.weight < 9
-          return 4
+          return 0
         else
           if d.weight > 300
             return 100
@@ -57,7 +58,10 @@
       .style("text-anchor", "middle")
       .attr("dy", "1.6em")
       .text (d) ->
-        return d.name if d.name.match(/動詞/)
+        if d.name.match(/動詞/)
+          return d.name
+        else
+          return d.name
 
     node.append("text")
       .attr('fill', '#ffffff')
