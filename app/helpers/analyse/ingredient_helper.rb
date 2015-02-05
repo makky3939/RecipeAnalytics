@@ -1,0 +1,2 @@
+module Analyse::IngredientHelper
+end

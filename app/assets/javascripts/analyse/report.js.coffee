@@ -1,6 +1,5 @@
 @users_relation = ->
   d3.json '/analyse/report/user_relation_json', (error, data) ->
-    console.log data
     nodes = {}
 
     data.forEach (link) ->

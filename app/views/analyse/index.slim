@@ -4,6 +4,29 @@ h1 Analyse
   .col-xs-12
     .panel.panel-default
       .panel-heading
+        h4 Recipe name
+      .panel-body
+        pre = REDIS.get('recipe_name')[0..480]
+      .panel-footer
+        .row
+          .col-xs-6
+            a.btn.btn-success(href="/analyse/recipe/name")
+              i.fa.fa-play.fa-fw
+              |Graph
+            a.btn.btn-default(href="/analyse/recipe/name_json")
+              i.fa.fa-download.fa-fw
+              |JSON
+            a.btn.btn-default(href="/analyse/recipe/name_csv")
+              i.fa.fa-download.fa-fw
+              |CSV
+          .col-xs-6.text-right
+            a.btn.btn-danger(href="/analyse/recipe/name_create")
+              i.fa.fa-refresh.fa-fw
+              |Create
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
         h4 Method of ingredients
       .panel-body
         pre = REDIS.get('method_of_ingredients')[0..480]
@@ -36,6 +59,12 @@ h1 Analyse
             a.btn.btn-success(href="/analyse/report/user_relation")
               i.fa.fa-play.fa-fw
               |Graph
+            a.btn.btn-default(href="/analyse/report/user_relation_json")
+              i.fa.fa-download.fa-fw
+              |JSON
+            a.btn.btn-default(href="/analyse/report/user_relation_csv")
+              i.fa.fa-download.fa-fw
+              |CSV
           .col-xs-6.text-right
             a.btn.btn-danger(href="/analyse/report/user_relation_create")
               i.fa.fa-refresh.fa-fw

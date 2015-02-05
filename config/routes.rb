@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   #   end
 
   root 'setting#status'
+  get 'settings' => 'setting#status'
 
   resources :analyse, :only => [:index]
 
@@ -67,9 +68,13 @@ Rails.application.routes.draw do
     get 'report/user_relation' => 'report#user_relation'
     get 'report/user_relation_create' => 'report#user_relation_create'
     get 'report/user_relation_json' => 'report#user_relation_json'
-  end
+    get 'report/user_relation_csv' => 'report#user_relation_csv'
 
-  get 'settings' => 'setting#status'
+    get 'recipe/name' => 'recipe#name'
+    get 'recipe/name_create' => 'recipe#name_create'
+    get 'recipe/name_json' => 'recipe#name_json'
+    get 'recipe/name_csv' => 'recipe#name_csv'
+  end
 
   get 'ingredients/with_frequency' => 'ingredients#with_frequency'
   get 'ingredients/with_frequency_json' => 'ingredients#with_frequency_json'

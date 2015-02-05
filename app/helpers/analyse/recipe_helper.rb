@@ -1,0 +1,2 @@
+module Analyse::RecipeHelper
+end

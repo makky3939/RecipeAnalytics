@@ -16,10 +16,10 @@
       .nodes(d3.values(nodes))
       .links(data)
       .size([width, height])
-      .linkDistance (d) ->
-        return 90
+      .linkDistance(120)
       .friction(0)
-      .gravity(0)
+      .charge(-200)
+      .gravity(-1)
       .start()
     svg = d3.select("#method_of_ingredients").append("svg")
       .attr("width", width)

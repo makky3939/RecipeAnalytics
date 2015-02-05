@@ -22,7 +22,7 @@ class Analyse::MethodController < ApplicationController
     verb.each do |v, item|
       item.each do |name, count|
         if count > 20
-          result.push(source: '[動詞]'+v, target: v+'+'+name, type: count)
+          result.push(source: v, target: name, type: count)
         end
       end
     end
@@ -35,7 +35,6 @@ class Analyse::MethodController < ApplicationController
   end
 
   def of_ingredients_csv
-    require 'csv'
     _verb = Recipe.verb_of_title
     verb = {}
     _verb.each do |key, val|
